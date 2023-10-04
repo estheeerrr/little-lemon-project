@@ -1,38 +1,228 @@
-.App {
-  text-align: center;
+/* global */
+body {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1, h2, h3, h4 {
+  font-family: "Markazi Text";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+  font-size: 64px;
+  color: #F4CE14;
+}
+
+h2 {
+  color: white;
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 35px;
+}
+
+p {
+  font-family: 'Karla';
+}
+
+a {
+  font-family: 'Karla';
+  font-size: 20;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333333;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+button {
+  background-color: #F4CE14;
+  border-radius: 16px;
+  border-style: none;
+  height: 50px;
+  width: 200px;
+  font: bold 1.2rem 'Karla';
+}
+
+/* header & nav*/
+header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em 0;
+  width: 100%;
+}
+
+.logo img {
+  width: 10rem;
+  margin-left: 1.5em;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-right: 1.5em;
+}
+
+nav a {
+  font-family: 'Karla';
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 20;
+  text-decoration: none;
+  color: #333333;
+}
+
+/* hero */
+.hero {
+  display: flex;
+  background-color: #495e57;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2rem 10%;
+}
+
+.hero-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-content > h1, .hero-content > h2{
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-content p {
+  font-size: 18px;
+  padding: 2rem 0;
 }
+
+.hero-img img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden; 
+  box-shadow:#333333;
+}
+
+/* highlights */
+
+
+/* testimonials */
+
+
+/* about */
+.about {
+  padding: 2rem 10%;
+  display: flex;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-content {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  color: #333333;
+}
+
+.about-content > h1, .about-content > h2{
+  margin: 0;
+}
+
+.about-content p {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 2rem 0;
+}
+
+.about-img {
+  width: 20rem;
+  height: 25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-img #indoor {
+  width: 12rem;
+  height: 15rem;
+  object-fit: cover;
+  position: absolute;
+  bottom:0;
+  left: 0;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-img #chefs {
+  width: 12rem;
+  height: 15rem;
+  object-fit: cover;
+  position: absolute;
+  top:0;
+  right: 0;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about h1 {
+  color: #495e57;
+}
+
+.about h2 {
+  color: #333333;
+}
+
+
+/* footer */
+.footer {
+  display: flex;
+  background-color: #EDEFEE;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10% 5% 10%;
+}
+
+.footer .logo {
+  align-self: center;
+}
+
+.footer-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: flex-start;
+}
+
+.footer-section ul {
+  padding: 0;
+}
+
+.footer-section li {
+  padding-bottom: 0.3rem;
+  padding-left: 0.1rem;
+}
+
+.footer-section h4 {
+  font-size: 32px;
+  text-align: left;
+  color: #495e57;
+  margin-bottom: 0.5rem;
+}
+
+

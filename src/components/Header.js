@@ -1,22 +1,24 @@
-import React from 'react';
+import * as React from "react";
+import { Link } from "react-router-dom";
+import Logo from "../images/Logo.png";
 
 function Header() {
   return (
-    <>
-        <header>
-            <img src="./images/logo.svg"></img>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#highlights">Menu</a></li>
-                <li><a href="/reservations">Reservations</a></li>
-                <li><a href="/order-online">Order Online</a></li>
-                <li><a href="/login">Login</a></li>
-            </ul>
-        </nav>
-    </>
+    <header>
+      <div className="logo">
+        <img src={Logo} alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="#about">About</Link></li>
+          <li><Link to="#menu">Menu</Link></li>
+          <li><Link to="/reservations">Reservations</Link></li>
+          <li><Link to="/">Order Online</Link></li>
+          <li><Link to="/">Login</Link></li>
+        </ul>
+      </nav>
+    </header>
   );
 }
 
