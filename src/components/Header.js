@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../images/Logo.png";
 
 function Header() {
   return (
-    <header>
+    <div className="header">
       <div className="logo">
         <img src={Logo} alt="Logo" />
       </div>
@@ -18,7 +18,7 @@ function Header() {
           <li><Link to="/">Login</Link></li>
         </ul>
       </nav>
-    </header>
+    </div>
   );
 }
 

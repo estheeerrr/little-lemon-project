@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import RestaurantFood from "../images/restauranfood.jpg";
 
@@ -13,14 +14,12 @@ function HeroSection() {
               We are a family owned Mediterranean restaurant, focused on
               traditional recipes served with a modern twist.
             </p>
-  
-            <Link to="/reservations">
-              <button id="button" to="/reservations">
+            <Link to="/">
+              <button id="button" to="/">
                 Reserve a Table
               </button>
             </Link>
           </div>
-  
           <div className="hero-img">
             <img src={RestaurantFood} alt="restaurantFood" />
           </div>

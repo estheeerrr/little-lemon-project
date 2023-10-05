@@ -1,3 +1,4 @@
+import React from "react";
 import Chefs from "../images/Mario and Adrian A.jpg";
 import Indoor from "../images/restaurant.jpg";
 
