@@ -15,11 +15,9 @@ const HighlightsCard = ({ name, price, description, image }) => {
                 </div>
                 <p>{description}</p>
                 <div className="card-btm">
-                    <Link to="/">
-                        <button id="button" to="/">
-                            Order A Delivery
-                            <img src={delivery}/>
-                        </button>
+                    <Link to="/" id="button">
+                        Order A Delivery
+                        <img src={delivery}/>
                     </Link>
                 </div>
             </div>

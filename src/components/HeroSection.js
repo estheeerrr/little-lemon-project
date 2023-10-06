@@ -4,28 +4,24 @@ import RestaurantFood from "../images/restauranfood.jpg";
 
 
 function HeroSection() {
-    return (
-      <>
-        <div className="hero">
-          <div className="hero-content">
-            <h1>Little Lemon</h1>
-            <h2>Chicago</h2>
-            <p>
-              We are a family owned Mediterranean restaurant, focused on
-              traditional recipes served with a modern twist.
-            </p>
-            <Link to="/">
-              <button id="button" to="/">
-                Reserve a Table
-              </button>
-            </Link>
-          </div>
-          <div className="hero-img">
-            <img src={RestaurantFood} alt="restaurantFood" />
-          </div>
-        </div>
-      </>
-    );
+  return (
+    <div className="hero">
+      <div className="hero-content">
+        <h1>Little Lemon</h1>
+        <h2>Chicago</h2>
+        <p>
+          We are a family owned Mediterranean restaurant, focused on
+          traditional recipes served with a modern twist.
+        </p>
+        <Link to="/reservations" id="button">
+            Reserve a Table
+        </Link>
+      </div>
+      <div className="hero-img">
+        <img src={RestaurantFood} alt="restaurantFood" />
+      </div>
+    </div>
+  );
 }
 
 export default HeroSection;

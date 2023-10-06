@@ -2,14 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import reportWebVitals from './reportWebVitals';
+import BookingPage from './components/BookingForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <React.StrictMode>
-        <App />
+        <Routes> 
+          <Route path="/" element={<App/>}></Route>
+          <Route path="/booking" element={<BookingPage/>}></Route>
+        </Routes>
       </React.StrictMode>
   </Router>
 );

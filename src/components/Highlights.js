@@ -28,28 +28,24 @@ const dishes = [
 
 function Highlights() {
     return (
-        <>
-            <div className="highlights">
-                <div className="highlights-title">
-                    <h2>This Week's Specials</h2>
-                    <Link to="/">
-                        <button id="button" to="/">
-                            Online Menu
-                        </button>
-                    </Link>
-                </div>
-                <div className="highlights-cards">
-                    {dishes.map((dish) => (
-                        <HighlightsCard
-                            key={dish.name}
-                            name={dish.name}
-                            price={dish.price}
-                            description={dish.description}
-                            image={dish.image} />
-                    ))}
-                </div>
+        <div className="highlights">
+            <div className="highlights-title">
+                <h2>This Week's Specials</h2>
+                <Link to="/" id="button">
+                    Order Online
+                </Link>
             </div>
-        </>
+            <div className="highlights-cards">
+                {dishes.map((dish) => (
+                    <HighlightsCard
+                        key={dish.name}
+                        name={dish.name}
+                        price={dish.price}
+                        description={dish.description}
+                        image={dish.image} />
+                ))}
+            </div>
+        </div>
     )
 }
 
