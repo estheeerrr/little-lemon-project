@@ -22,8 +22,8 @@ function Header() {
       <nav>
         <ul>
           <li><Link to="/" onClick={handleClick("header")}>Home</Link></li>
-          <li><Link to="#about" onClick={handleClick("about")}>About</Link></li>
-          <li><Link to="#menu" onClick={handleClick("highlights")}>Menu</Link></li>
+          <li><Link to="/#about" onClick={handleClick("about")}>About</Link></li>
+          <li><Link to="/#menu" onClick={handleClick("highlights")}>Menu</Link></li>
           <li><Link to="/reservations">Reservations</Link></li>
           <li><Link to="/">Order Online</Link></li>
           <li><Link to="/">Login</Link></li>
