@@ -13,7 +13,7 @@ function HeroSection() {
           We are a family owned Mediterranean restaurant, focused on
           traditional recipes served with a modern twist.
         </p>
-        <Link to="/reservations" id="button">
+        <Link to="/reservations" id="button" aria-label="On Click">
             Reserve a Table
         </Link>
       </div>

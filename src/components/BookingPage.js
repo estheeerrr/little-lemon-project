@@ -3,7 +3,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import BookingForm from "./BookingForm";
 import BookingHeader from "./BookingHeader";
-import BookingSuccess from "./BookingSuccess";
 import "../styles/Booking.css";
 
 function BookingPage() {
@@ -23,7 +22,9 @@ function BookingPage() {
         <>
             <Header />
             <BookingHeader />
-            <BookingForm booking={booking} setBooking={setBooking} />
+            <BookingForm 
+                booking={booking} 
+                setBooking={setBooking}  />
             <Footer />
         </>
     )

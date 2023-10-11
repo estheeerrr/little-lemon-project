@@ -1,4 +1,4 @@
-import React, {useState}  from "react";
+import React, {useState} from "react";
 import dish from "../icons/Dish icon.svg";
 import { useNavigate} from "react-router-dom";
 
@@ -11,6 +11,30 @@ const BookingForm = ({booking, setBooking}) => {
         time: "",
         guests: "",
       });
+    
+    const timeOptions = [
+        "11:00 AM",
+        "11:30 AM",
+        "12:00 PM",
+        "12:30 PM",
+        "1:00 PM",
+        "1:30 PM",
+        "2:00 PM",
+        "2:30 PM",
+        "4:00 PM",
+        "4:30 PM",
+        "5:00 PM",
+        "5:30 PM",
+        "6:00 PM",
+        "6:30 PM",
+        "7:00 PM",
+        "7:30 PM",
+        "8:00 PM",
+        "8:30 PM",
+        "9:00 PM",
+        "9:30 PM",
+        "10:00 PM"
+    ];
 
     const clearForm = () => {
         setBooking({
@@ -31,40 +55,40 @@ const BookingForm = ({booking, setBooking}) => {
 
         const validations = {
             firstName: (value) => {
-                if (value.length < 2) {
-                    return "Please enter at least 2 characters for first name.";
-                }
-                return "";
+                return (
+                    value.length < 2 ?
+                        "Please enter at least 2 characters for first name." : ""
+                )
             },
             email: (value) => {
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                    return "Please enter a valid email.";
-                }
-                return "";
+                return (
+                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ?
+                        "Please enter a valid email." : ""
+                )
             },
             phone: (value) => {
-                if (value.length < 10) {
-                    return "Please enter a valid phone number.";
-                }
-                return "";
+                return (
+                    value.length < 10 ?
+                    "Please enter a valid phone number." : ""
+                )
             },
             date: (value) => {
-                if (!value) {
-                    return "Please select a date.";
-                }
-                return "";
+                return(
+                    !value ?
+                    "Please select a date." : ""
+                )
             },
             time: (value) => {
-                if (!value) {
-                    return "Please select a time.";
-                }
-                return "";
+                return(
+                    !value ?
+                    "Please select a time between 11:00 and 22:00." : ""
+                )
             },
             guest: (value) => {
-                if (!value) {
-                    return "Please fill in a number between 1 to 20.";
-                }
-                return "";
+                return(
+                    !value ?
+                    "Please fill in a number between 1 to 20." : ""
+                )
             },
         };
 
@@ -165,13 +189,16 @@ const BookingForm = ({booking, setBooking}) => {
                         </div>
                         <div className="booking-info">
                             <label>Time</label>
-                            <input
-                                type="time"
+                            <select
                                 id="time"
-                                value={booking.time}
+                                value={booking.time}  
                                 onChange={(e) => setBooking({ ...booking, time: e.target.value })}
                                 onBlur={() => validateForm("time")}
-                                required />
+                                required >
+                                {timeOptions.map((time) => (
+                                    <option key={time} value="time">{time}</option>
+                                ))}
+                            </select>
                             {error.time && <div className="error">{error.time}</div>}
                         </div>
                         <div className="booking-info">
@@ -183,8 +210,8 @@ const BookingForm = ({booking, setBooking}) => {
                                 onChange={(e) => setBooking({ ...booking, guest: e.target.value })}
                                 onBlur={() => validateForm("guest")}
                                 min="1"
-                                max="20"
-                                placeholder="1 - 20 People"
+                                max="10"
+                                placeholder="1 - 10 People"
                                 required />
                             {error.guest && <div className="error">{error.guest}</div>}
                         </div>
@@ -207,7 +234,7 @@ const BookingForm = ({booking, setBooking}) => {
                                 onChange={(e) => setBooking({ ...booking, note: e.target.value })} />
                         </div>
                     </div>
-                    <button id="button" type="submit" onSubmit={handleSubmit} to="/success">
+                    <button id="button" type="submit" onSubmit={handleSubmit} to="/success" aria-label="On Click">
                         Submit Booking
                     </button>
                 </fieldset>

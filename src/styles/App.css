@@ -436,6 +436,7 @@ nav a {
 
 @media (max-width: 450px)  {
   .footer {
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
@@ -445,7 +446,7 @@ nav a {
     text-align: center;
   }
 
-  .footer-section a:hover {
-    color:#495e57;
+  .footer-section h4 {
+    text-align: center;
   }
 }

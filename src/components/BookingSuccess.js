@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import restaurant from "../images/Mario and Adrian b.jpg"
 import Logo from "../images/Logo.png";
 import BookingHeader from "./BookingHeader";
 import Header from "./Header";
@@ -16,18 +15,13 @@ const BookingSuccess = () => {
             <BookingHeader/>
             <div className="success-page">
                 <div className="success">
-                    <div className="success-msg">
-                        <img src={Logo} alt="Logo" />
-                        <h1>See You Soon, {booking.firstName}!</h1>
-                        <p>
-                            Your reservation at Little Lemon Chicago is confirmed. 
-                            A copy of your reservation has been sent to your email ({booking.email})
-                            and phone number ({booking.phone}).
-                        </p>
-                    </div>
-                    <div className="success-img">
-                        <img src={restaurant} alt="restaurant" />
-                    </div>
+                    <img src={Logo} alt="Logo" />
+                    <h1>See You Soon, {booking.firstName}!</h1>
+                    <p>
+                        Your reservation at Little Lemon Chicago is confirmed. 
+                        A copy of your reservation has been sent to your email ({booking.email})
+                        and phone number ({booking.phone}).
+                    </p>
                 </div>
                 <h2>Booking Summary</h2>
                 <div className="confirmation">

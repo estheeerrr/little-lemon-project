@@ -31,18 +31,19 @@ form, fieldset {
   }
 
   .booking-form, .success-page {
-    background: linear-gradient(#edefed,white);
+    background: linear-gradient(white, #edefed);
     padding: 3rem 0 7rem;
   }
 
 .booking-header {
-    height: 20rem;
+    height: auto;
     background-color: #495e57;
+    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 2rem 19rem;
+    padding: 3rem 20%;
+    gap: 2rem;
     background: linear-gradient(rgba(73, 94, 87, 0.75), rgba(73, 94, 87, 0.75)), url("../images/restaurant-bg.jpeg");
     background-position: center; 
     background-size: cover;
@@ -50,7 +51,7 @@ form, fieldset {
 
 #booking-title {
     color: #fbdabb;
-    margin-top: 5rem;
+    margin-top: 3rem;
     align-self:flex-end;
 }
 
@@ -127,53 +128,42 @@ textarea {
     display: block;
 }
 
-.success h1 {
-    color:#495e57;
-    line-height: 3.5rem;
-    margin:
-     0;
-}
-
-.success-img img {
-    width: 18rem;
-    height: 23rem;
-    object-fit: cover;
-    overflow: hidden; 
-    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+.success-page {
+    padding:1.5rem;
 }
 
 .success {
-    padding: 3rem 10%;
-    gap: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-}
-
-.success-msg {
-    width: 28rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
+    flex-wrap: wrap;
     font-size: 18px;
+    font-weight: 550;
+    gap: 2rem;
     line-height: 1.5rem;
+    max-width: 45rem; 
+    margin: 0 auto; 
+}
+
+.success h1 {
+    color:#495e57;
+    line-height: 3.5rem;
+    align-self: center;
+}
+
+.success img {
+    align-self: center;
+    height: 6rem;
+    width: auto;
+    margin-top: 4rem;
 }
 
 .success-page h2 {
-    color:#333333;
+    margin-top: 5rem;
+    color:#495e57;
     text-align: center;
     margin-bottom: 1.5rem;
-}
-
-.success-msg img {
-    height: 4rem;
-    width: auto;
-    align-self: start;
 }
 
 .confirmation {
@@ -181,21 +171,96 @@ textarea {
     padding: 2rem; 
     border-radius: 16px; 
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-    max-width: 35rem; 
-    margin: 0 auto; 
+    max-width: 45rem; 
+    margin: 0 auto 7rem; 
 }
 
 .info-item {
     color: white;
     font-size: 20px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+    overflow: scroll;
+    white-space: normal;
 }
 
 .info-item #item {
     font-weight: bold;
     color: #F4CE14;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+    /* booking-header */
+    .booking-header {
+        height: auto;
+        text-align: center;
+        padding: auto;
+    }
+
+    #booking-title {
+        text-wrap: wrap;
+        align-self: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px)  {
+    input, select, textarea {
+        max-width: 18rem;
+    }
+
+    select {
+        max-width:20rem;
+    }
+
+    .booking-form h2 {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 3rem;
+        color:#495e57;
+        padding: 0;
+    }
+    
+    .section-title {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .section-title img {
+        align-self: center;
+        width: 2.5rem;
+        margin-top:3rem;
+    }
+
+    .success {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+    }
+
+    .success img {
+        height: 5rem;
+    }
+
+    .confirmation {
+        margin: 0 auto 3rem; 
+    }
+}
+
+@media (max-width: 400)  {
+    input, select, textarea {
+        max-width: 15rem;
+    }
+
+    select {
+        max-width:17rem;
+    }
 }
