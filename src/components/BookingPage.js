@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useReducer} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import BookingForm from "./BookingForm";
 import BookingHeader from "./BookingHeader";
 import "../styles/Booking.css";
+import { fetchAPI } from "../api/api.js"
 
 function BookingPage() {
     const [booking, setBooking] = useState({
@@ -18,13 +19,22 @@ function BookingPage() {
         note: "",
       });
 
+    function updateTimes(date) {
+        return fetchAPI(date);
+    }
+
+    const output = fetchAPI(new Date());
+    const [availableTimes, dispatch] = useReducer(updateTimes, output);
+
     return (
         <>
             <Header />
             <BookingHeader />
             <BookingForm 
                 booking={booking} 
-                setBooking={setBooking}  />
+                setBooking={setBooking}
+                availableTimes={availableTimes} 
+                updateTimes={dispatch}   />
             <Footer />
         </>
     )

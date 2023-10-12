@@ -18,7 +18,7 @@ const BookingSuccess = () => {
                     <img src={Logo} alt="Logo" />
                     <h1>See You Soon, {booking.firstName}!</h1>
                     <p>
-                        Your reservation at Little Lemon Chicago is confirmed. 
+                        Your reservation at Little Lemon Chicago is confirmed.
                         A copy of your reservation has been sent to your email ({booking.email})
                         and phone number ({booking.phone}).
                     </p>
@@ -37,12 +37,12 @@ const BookingSuccess = () => {
                         <p id="item">Number of Guest</p>
                         <p>{booking.guest}</p>
                     </div>
-                    {booking.occassion?              
+                    {booking.occassion ?
                         <div className="info-item">
                             <p id="item">Occassion</p>
                             <p>{booking.occassion}</p>
                         </div> : null }
-                    {booking.note ? 
+                    {booking.note ?
                         <div className="info-item">
                             <p id="item">Special Note</p>
                             <p>{booking.note}</p>

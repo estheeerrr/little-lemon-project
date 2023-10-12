@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import dish from "../icons/Dish icon.svg";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const BookingForm = ({booking, setBooking}) => {
+const BookingForm = ({booking, setBooking, availableTimes, updateTimes}) => {
     const [error, setError] = useState({
         firstName: "",
         email: "",
@@ -11,30 +11,27 @@ const BookingForm = ({booking, setBooking}) => {
         time: "",
         guests: "",
       });
-    
-    const timeOptions = [
-        "11:00 AM",
-        "11:30 AM",
-        "12:00 PM",
-        "12:30 PM",
-        "1:00 PM",
-        "1:30 PM",
-        "2:00 PM",
-        "2:30 PM",
-        "4:00 PM",
-        "4:30 PM",
-        "5:00 PM",
-        "5:30 PM",
-        "6:00 PM",
-        "6:30 PM",
-        "7:00 PM",
-        "7:30 PM",
-        "8:00 PM",
-        "8:30 PM",
-        "9:00 PM",
-        "9:30 PM",
-        "10:00 PM"
-    ];
+
+    const [timeOption, setTimeOption] = useState(
+    availableTimes.map((times) =>
+        <option key={times} value={times}>{times}</option>)
+    );
+
+    function handleDateChange(e) {
+        setBooking({ ...booking, date: e.target.value });
+        var newDate = e.target.value;
+        const date = new Date(newDate);
+
+        updateTimes(date, () => {
+            if (availableTimes) {
+                setTimeOption(availableTimes.map((times) => (
+                    <option key={times} value={times}>
+                        {times}
+                    </option>
+                )));
+            }
+        });
+    }
 
     const clearForm = () => {
         setBooking({
@@ -75,13 +72,13 @@ const BookingForm = ({booking, setBooking}) => {
             date: (value) => {
                 return(
                     !value ?
-                    "Please select a date." : ""
+                    "Please select a valid date." : ""
                 )
             },
             time: (value) => {
                 return(
                     !value ?
-                    "Please select a time between 11:00 and 22:00." : ""
+                    "Please select a valid time." : ""
                 )
             },
             guest: (value) => {
@@ -122,19 +119,19 @@ const BookingForm = ({booking, setBooking}) => {
                             <label>
                             First Name
                             </label>
-                            <input 
+                            <input
                                 type="text"
                                 id="first-name"
                                 value={booking.firstName}
                                 onChange={(e) => setBooking({ ...booking, firstName: e.target.value })}
                                 onBlur={() => validateForm("firstName")}
-                                placeholder="First Name" 
+                                placeholder="First Name"
                                 required/>
                             {error.firstName && <div className="error">{error.firstName}</div>}
                         </div>
                         <div className="guest-info">
                             <label>Last Name</label>
-                            <input 
+                            <input
                                 type="text"
                                 id="last-name"
                                 value={booking.lastName}
@@ -182,7 +179,7 @@ const BookingForm = ({booking, setBooking}) => {
                                 type="date"
                                 id="date"
                                 value={booking.date}
-                                onChange={(e) => setBooking({ ...booking, date: e.target.value })}
+                                onChange={handleDateChange}
                                 onBlur={() => validateForm("date")}
                                 required />
                             {error.date && <div className="error">{error.date}</div>}
@@ -191,13 +188,11 @@ const BookingForm = ({booking, setBooking}) => {
                             <label>Time</label>
                             <select
                                 id="time"
-                                value={booking.time}  
+                                value={booking.time}
                                 onChange={(e) => setBooking({ ...booking, time: e.target.value })}
                                 onBlur={() => validateForm("time")}
                                 required >
-                                {timeOptions.map((time) => (
-                                    <option key={time} value="time">{time}</option>
-                                ))}
+                                {timeOption}
                             </select>
                             {error.time && <div className="error">{error.time}</div>}
                         </div>
@@ -217,8 +212,8 @@ const BookingForm = ({booking, setBooking}) => {
                         </div>
                         <div className="booking-info">
                             <label>Occassion</label>
-                            <select id="occassion" 
-                                    value={booking.occassion} 
+                            <select id="occassion"
+                                    value={booking.occassion}
                                     onChange={(e) => setBooking({ ...booking, occassion: e.target.value })}>
                                 <option>Occassion</option>
                                 <option value="Birthday">Birthday</option>
