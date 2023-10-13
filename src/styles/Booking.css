@@ -184,8 +184,6 @@ textarea {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    overflow: scroll;
-    white-space: normal;
 }
 
 .info-item #item {
